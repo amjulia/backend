@@ -32,17 +32,19 @@ const server = http.createServer((request, response) => {
     response.end();
     return;
   }
- 
+  if (request.url === "/") {
     response.status = 200;
     response.statusMessage = "Ok";
     response.header = "Content-Type: text/plain";
-    response.write("Hello, world");
+    response.write("Hello, world!");
     response.end();
+  }
+    
  
   response.status = 500;
   response.statusMessage = "Internal Server Error";
   response.end();
 });
-server.listen(3005, () => {
-  console.log("Сервер запущен по запросу http://127.0.0.1:3005");
+server.listen(3003, () => {
+  console.log("Сервер запущен по запросу http://127.0.0.1:3003");
 });
